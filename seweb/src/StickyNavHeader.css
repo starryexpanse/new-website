@@ -1,0 +1,35 @@
+.StickyNavHeader {
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  display: flex;
+  justify-content: stretch;
+  flex-wrap: nowrap;
+  background-color: rgba(81, 49, 49, 0.9); }
+  .StickyNavHeader-section-left, .StickyNavHeader-section-right {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center; }
+    .StickyNavHeader-section-left > div, .StickyNavHeader-section-right > div {
+      padding: 15px;
+      color: #eee;
+      text-transform: uppercase;
+      font-weight: 100;
+      font-size: 14px;
+      letter-spacing: 1px;
+      font-family: "Open Sans", sans-serif; }
+  .StickyNavHeader-section-left {
+    justify-content: flex-end; }
+  .StickyNavHeader-section-right {
+    justify-content: flex-start; }
+  .StickyNavHeader-logo-outlet {
+    width: 50px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    background-color: red; }

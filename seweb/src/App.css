@@ -2,11 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
 .App-header {
   background-color: #222;
   height: 150px;
@@ -22,7 +17,28 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.App-parallax {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: red;
+}
+
+.App-headline-container {
+  height: 0;
+}
+.App-headline {
+  height: 100vh;
+  position: relative;
+  top: -100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-parallax-image {
+  height: 100vh;
+  border-top: 10px solid blue;
 }
