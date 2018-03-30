@@ -36,11 +36,11 @@ class App extends Component {
                 <div className="App__section-about-us-body-column-inner">
                   <div className="App__section-about-us-body-column-inner-title">Who We Are</div>
                   <div>
-                    We are a group of game developers who share the dream of seeing <i>Riven</i>
-                    released into the modern gaming landscape. <i>The Starry Expanse Project</i> is
-                    our attempt to immortalize Cyan's masterpiece and let players gaze in awe and wonder
-                    at the beauty of <i>Riven</i>'s tropical and deserted landscapes. At the same time,
-                    they will be puzzling as to what exactly they have been brought there to do, just
+                    We are a group of game developers who share the dream of seeing <i>Riven</i>{' '}
+                    released into the modern gaming landscape. <i>The Starry Expanse Project</i> is{' '}
+                    our attempt to immortalize Cyan's masterpiece and let players gaze in awe and wonder{' '}
+                    at the beauty of <i>Riven</i>'s tropical and deserted landscapes. At the same time,{' '}
+                    they will be puzzling as to what exactly they have been brought there to do, just{' '}
                     as did players worldwide upon <i>Riven</i>'s original release in 1997.
                   </div>
                 </div>
