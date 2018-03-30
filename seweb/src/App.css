@@ -1,23 +1,22 @@
 .App {
-  text-align: center;
 }
 
-.App-header {
+.App__header {
   background-color: #222;
   height: 150px;
   padding: 20px;
   color: white;
 }
 
-.App-title {
+.App__title {
   font-size: 1.5em;
 }
 
-.App-intro {
+.App__intro {
   font-size: large;
 }
 
-.App-parallax {
+.App__parallax {
   height: 100vh;
   overflow: hidden;
   display: flex;
@@ -26,10 +25,10 @@
   background: red;
 }
 
-.App-headline-container {
+.App__headline-container {
   height: 0;
 }
-.App-headline {
+.App__headline {
   height: 100vh;
   position: relative;
   top: -100vh;
@@ -38,7 +37,64 @@
   align-items: center;
 }
 
-.App-parallax-image {
+.App__parallax-image {
   height: 100vh;
   border-top: 10px solid blue;
+}
+
+.App__section {
+  padding-top: 130px;
+  padding: 120px;
+}
+
+.App__section-header {
+  font-size: 28px;
+  text-transform: uppercase;
+  color: #444444;
+  text-align: center;
+}
+
+.App__section-header-divider {
+  width: 100px;
+  height: 4px;
+  margin: 20px auto;
+  background-color: #B29999;
+}
+
+.App__section-about-us-body {
+  display: flex;
+  justify-content: stretch;
+}
+
+.App__section-about-us-body-column-left, .App__section-about-us-body-column-right {
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding-top: 70px;
+}
+
+.App__section-about-us-body-column-right {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 90px;
+}
+
+.App__section-about-us-body-column-left {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 90px;
+}
+
+.App__section-about-us-body-graphic {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.App__section-about-us-body-column-inner {
+  width: 350px;
+}
+
+.App__section-about-us-body-column-inner-title {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 20px;
 }

@@ -13,9 +13,8 @@ class StickyNavHeader extends Component {
         <div className="StickyNavHeader-logo-outlet">
         </div>
         <div className="StickyNavHeader-section-right">
-            <div>About</div>
-            <div>Gallery</div>
-            <div>Team</div>
+            <div>We're Hiring</div>
+            <div>Contact</div>
         </div>
       </header>
     );
