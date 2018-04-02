@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ScrollConsumer } from './ScrollProvider';
 import logo from './logo.svg';
 import bgTapestry from './img/bg-tapestry.jpg';
 import bgTestimonial from './img/Bedroom2.jpg';
@@ -26,7 +27,14 @@ class App extends Component {
               <img src={bgTapestry} className="App__parallax-image" />
           </Parallax>
           <div className="App__headline-container">
-            <div className="App__headline">Riven Remastered</div>
+            <div className="App__headline">
+              Riven Remastered
+              <ScrollConsumer>
+                {scroll => {
+                  return <div>{scroll}</div>;
+                }}
+              </ScrollConsumer>
+            </div>
           </div>
           <div className="App__section">
             <div className="App__section-header">About Us</div>
