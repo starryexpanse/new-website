@@ -1,3 +1,4 @@
+import idx from 'idx';
 import React, { Component } from 'react';
 import { ScrollConsumer } from './ScrollProvider';
 import logo from './logo.svg';
@@ -5,14 +6,21 @@ import bgTapestry from './img/bg-tapestry.jpg';
 import bgTestimonial from './img/Bedroom2.jpg';
 import imgDagger from './img/dagger.png';
 import './App.css';
+import Measure from 'react-measure';
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 import StickyNavHeader from './StickyNavHeader';
 
 class App extends Component {
+  state = {
+    dimensions: null,
+  };
+
   render() {
+    const { state } = this;
+
     const percentages = 190;
-    const skew = -.5;
-    const center = (1-(.5-skew))*percentages;
+    const skew = -0.5;
+    const center = (1 - (.5 - skew)) * percentages;
     return (
       <div className="App">
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300" rel="stylesheet" type="text/css" />
@@ -28,12 +36,35 @@ class App extends Component {
           </Parallax>
           <div className="App__headline-container">
             <div className="App__headline">
-              Riven Remastered
-              <ScrollConsumer>
-                {scroll => {
-                  return <div>{scroll}</div>;
+              <Measure
+                client
+                offset
+                onResize={(contentRect) => {
+                  this.setState({ dimensions: contentRect.offset })
                 }}
-              </ScrollConsumer>
+              >
+                {({ measureRef }) =>
+                  <div
+                    ref={measureRef}
+                  >
+                    Riven Remastered
+                    <div
+                      style={{
+                        position: 'absolute',
+                        left: idx(state, _ => _.dimensions.left),
+                        top: idx(state, _ => _.dimensions.top),
+                        width: '30px',
+                        height: '30px',
+                        backgroundColor: 'red'
+                      }}></div>
+                    <ScrollConsumer>
+                      {scroll => {
+                        return <div>{scroll}</div>;
+                      }}
+                    </ScrollConsumer>
+                  </div>
+                }
+              </Measure>
             </div>
           </div>
           <div className="App__section">
