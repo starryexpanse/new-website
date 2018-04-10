@@ -40,7 +40,6 @@
 
 .App__parallax-image {
   height: 100vh;
-  border-top: 10px solid blue;
 }
 
 .App__section {
@@ -88,10 +87,12 @@
 .App__section-about-us-body-graphic {
   flex-grow: 0;
   flex-shrink: 0;
+  padding-top: 25px;
+  padding-right: 15px;
 }
 
 .App__section-about-us-body-column-inner {
-  width: 350px;
+  max-width: 350px;
 }
 
 .App__section-about-us-body-column-inner-title {

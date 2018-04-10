@@ -1,6 +1,7 @@
 import idx from 'idx';
 import React, { Component } from 'react';
 import { ScrollConsumer } from './ScrollProvider';
+import SpinningLogo from './SpinningLogo';
 import logo from './logo.svg';
 import bgTapestry from './img/bg-tapestry.jpg';
 import bgTestimonial from './img/Bedroom2.jpg';
@@ -24,7 +25,6 @@ class App extends Component {
     return (
       <div className="App">
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300" rel="stylesheet" type="text/css" />
-        <StickyNavHeader />
         <ParallaxProvider>
           <Parallax
               className="App__parallax"
@@ -47,24 +47,36 @@ class App extends Component {
                   <div
                     ref={measureRef}
                   >
-                    Riven Remastered
-                    <div
-                      style={{
-                        position: 'absolute',
-                        left: idx(state, _ => _.dimensions.left),
-                        top: idx(state, _ => _.dimensions.top),
-                        width: '30px',
-                        height: '30px',
-                        backgroundColor: 'red'
-                      }}></div>
                     <ScrollConsumer>
                       {scroll => {
-                        return <div>{scroll}</div>;
+                        const topPosition = idx(state, _ => _.dimensions.top) || 0;
+                        const distanceFromTop = topPosition - scroll;
+                        return <div>
+                          <SpinningLogo
+                            spinningRange={300}
+                            distanceFromTop={distanceFromTop}
+                            style={distanceFromTop <= 0 ? {visibility: 'hidden'} : {}}
+                          />
+                        </div>;
                       }}
                     </ScrollConsumer>
                   </div>
                 }
               </Measure>
+              <ScrollConsumer>
+                {scroll => {
+                  const topPosition = idx(state, _ => _.dimensions.top);
+                  const distanceFromTop = topPosition - scroll;
+
+                  return <div>
+                    <StickyNavHeader
+                      logoHeight={81}
+                      opacity={Math.min(Math.max(-distanceFromTop / 20, 0))}
+                      isLogoVisible={distanceFromTop <= 0}
+                    />
+                  </div>;
+                }}
+              </ScrollConsumer>
             </div>
           </div>
           <div className="App__section">
