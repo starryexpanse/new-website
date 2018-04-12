@@ -1,4 +1,5 @@
 import idx from 'idx';
+import { quadIn } from 'eases';
 import React, { Component } from 'react';
 import { ScrollConsumer } from './ScrollProvider';
 import SpinningLogo from './SpinningLogo';
@@ -10,6 +11,8 @@ import './App.css';
 import Measure from 'react-measure';
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 import StickyNavHeader from './StickyNavHeader';
+
+const logoPadding = 6;
 
 class App extends Component {
   state = {
@@ -51,11 +54,12 @@ class App extends Component {
                       {scroll => {
                         const topPosition = idx(state, _ => _.dimensions.top) || 0;
                         const distanceFromTop = topPosition - scroll;
+
                         return <div>
                           <SpinningLogo
                             spinningRange={300}
                             distanceFromTop={distanceFromTop}
-                            style={distanceFromTop <= 0 ? {visibility: 'hidden'} : {}}
+                            style={distanceFromTop <= logoPadding ? {visibility: 'hidden'} : {}}
                           />
                         </div>;
                       }}
@@ -67,12 +71,25 @@ class App extends Component {
                 {scroll => {
                   const topPosition = idx(state, _ => _.dimensions.top);
                   const distanceFromTop = topPosition - scroll;
+                  const bigSize = 81;
+                  const smallSize = 30;
+                  const scaleTransitionLength = 290;
+                  const progressCapped = Math.max(
+                    Math.min(
+                      -distanceFromTop / scaleTransitionLength,
+                      1
+                    ),
+                    0
+                  );
+                  const progressCappedSmooth = quadIn(progressCapped);
+
+                  const lerp = (a, b, t) => b * t + a * (1 - t);
 
                   return <div>
                     <StickyNavHeader
-                      logoHeight={81}
-                      opacity={Math.min(Math.max(-distanceFromTop / 20, 0))}
-                      isLogoVisible={distanceFromTop <= 0}
+                      logoHeight={lerp(bigSize, smallSize, progressCappedSmooth)}
+                      opacity={Math.min(Math.max(-(distanceFromTop - logoPadding) / 20, 0))}
+                      isLogoVisible={distanceFromTop <= logoPadding}
                     />
                   </div>;
                 }}

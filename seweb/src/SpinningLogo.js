@@ -17,7 +17,7 @@ class SpinningLogo extends Component {
                 src={imgRivenSymbol3d}
                 style={{
                     transform: `rotate(${
-                        quadInOut(progress) / 2
+                        0.5 + quadInOut(progress) / 2
                     }turn)`
                 }}
             />
