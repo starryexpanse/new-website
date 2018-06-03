@@ -18,7 +18,9 @@ class StickyNavHeader extends Component {
             <div>Team</div>
         </div>
         <div className="StickyNavHeader-logo-outlet" style={props.isLogoVisible ? {} : {visibility: 'hidden'}}>
+          <div className="StickyNavHeader-logo-outline" />
           <img className="StickyNavHeader-logo" src={imgRivenSymbol3d} style={{ height: props.logoHeight, transition: 'height 0.07s' }} />
+          <div className="StickyNavHeader-logo-backdrop" />
         </div>
         <div className="StickyNavHeader-section-right"  style={{opacity: props.opacity}}>
             <div>We're Hiring</div>

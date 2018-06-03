@@ -100,3 +100,12 @@
   font-size: 20px;
   margin-bottom: 20px;
 }
+
+.App__logo_spur {
+  width: 282px;
+  border: 1px solid black;
+  height: 3px;
+  margin-left: 2px;
+  border-left: 0;
+  border-right: 0;
+}

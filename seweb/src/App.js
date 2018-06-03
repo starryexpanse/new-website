@@ -55,12 +55,14 @@ class App extends Component {
                         const topPosition = idx(state, _ => _.dimensions.top) || 0;
                         const distanceFromTop = topPosition - scroll;
 
-                        return <div>
+                        return <div style={{ display: 'flex', alignItems: 'center' }}>
+                          <div className="App__logo_spur" />
                           <SpinningLogo
                             spinningRange={300}
                             distanceFromTop={distanceFromTop}
                             style={distanceFromTop <= logoPadding ? {visibility: 'hidden'} : {}}
                           />
+                          <div className="App__logo_spur" />
                         </div>;
                       }}
                     </ScrollConsumer>
@@ -118,15 +120,12 @@ class App extends Component {
               </div>
               <div className="App__section-about-us-body-column-right">
                 <div className="App__section-about-us-body-column-inner">
-                  <div className="App__section-about-us-body-column-inner-title">Who We Are</div>
-                  <div>
-                    We are a group of game developers who share the dream of seeing <i>Riven</i>
-                    released into the modern gaming landscape. <i>The Starry Expanse Project</i> is
-                    our attempt to immortalize Cyan's masterpiece and let players gaze in awe and wonder
-                    at the beauty of <i>Riven</i>'s tropical and deserted landscapes. At the same time,
-                    they will be puzzling as to what exactly they have been brought there to do, just
-                    as did players worldwide upon <i>Riven</i>'s original release in 1997.
-                  </div>
+                  <div className="App__section-about-us-body-column-inner-title">Main Features</div>
+                  <ul>
+                    <li>All-New Scultping and Modeled Geometry</li>
+                    <li>Hugely Detailed Environments</li>
+                    <li>Modernization of an Old Classic</li>
+                  </ul>
                 </div>
               </div>
             </div>

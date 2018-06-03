@@ -12,13 +12,25 @@ class SpinningLogo extends Component {
     );
 
     return (
-        <div style={props.style}>
+        <div style={{
+            ...props.style,
+            position: 'relative'
+        }}>
+            <div style={{
+                position: 'absolute',
+                top: -4,
+                right: -3,
+                left: -4,
+                bottom: 0,
+                border: '1px solid black',
+                borderRadius: '100px'
+            }}></div>
             <img
                 src={imgRivenSymbol3d}
                 style={{
                     transform: `rotate(${
                         0.5 + quadInOut(progress) / 2
-                    }turn)`
+                    }turn)`,
                 }}
             />
         </div>

@@ -7,7 +7,7 @@
   display: flex;
   justify-content: stretch;
   flex-wrap: nowrap;
-  background-color: rgba(81, 49, 49, 0.9); 
+  background-color: rgba(81, 49, 49, 0.9);
 }
 
 .StickyNavHeader-section-left, .StickyNavHeader-section-right {
@@ -16,7 +16,7 @@
   flex-basis: 100%;
   display: flex;
   flex-wrap: nowrap;
-  align-items: center; 
+  align-items: center;
 }
 
 .StickyNavHeader-section-left > div, .StickyNavHeader-section-right > div {
@@ -26,7 +26,7 @@
   font-weight: 100;
   font-size: 14px;
   letter-spacing: 1px;
-  font-family: "Open Sans", sans-serif; 
+  font-family: "Open Sans", sans-serif;
 }
 
 .StickyNavHeader-section-left {
@@ -43,4 +43,29 @@
   align-self: center;
   display: flex;
   padding: 8px 5px;
+  position: relative;
+}
+
+.StickyNavHeader-logo-outline {
+  position: absolute;
+  border: 1px solid black;
+  left: 2px;
+  right: 2px;
+  bottom: 4px;
+  top: 4px;
+  border-radius: 100px;
+}
+
+.StickyNavHeader-logo {
+  z-index: 100;
+}
+
+.StickyNavHeader-logo-backdrop {
+  position: absolute;
+  background: black;
+  left: 4px;
+  right: 4px;
+  bottom: 6px;
+  top: 6px;
+  border-radius: 100px;
 }
